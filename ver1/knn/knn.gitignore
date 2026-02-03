@@ -1,0 +1,9 @@
+*.jou
+*.log
+*.wdb
+*.pb
+*.str
+.Xil/
+xsim/
+sim_1/
+work/
