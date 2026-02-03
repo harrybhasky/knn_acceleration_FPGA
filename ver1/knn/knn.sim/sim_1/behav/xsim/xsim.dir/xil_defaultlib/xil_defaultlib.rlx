@@ -1,0 +1,8 @@
+0.7
+2020.2
+Nov 14 2025
+19:37:27
+C:/lib/knn/knn.sim/sim_1/behav/xsim/glbl.v,1756381829,verilog,,,,glbl,,,,,,,,
+C:/lib/knn/knn.srcs/sim_1/new/tb_knn.v,1770063722,verilog,,,,tb_knn,,,../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/lib/knn/knn.srcs/sources_1/new/distance_calc.v,1770103429,verilog,,C:/lib/knn/knn.srcs/sources_1/new/knn_top.v,,distance_calc,,,../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
+C:/lib/knn/knn.srcs/sources_1/new/knn_top.v,1770062316,verilog,,C:/lib/knn/knn.srcs/sim_1/new/tb_knn.v,,knn_top,,,../../../../../../AMDDesignTools/2025.2/Vivado/data/rsb/busdef,,,,,
