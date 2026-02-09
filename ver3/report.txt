@@ -1,0 +1,132 @@
+Improvements in the Updated K-NN Classifier Testbench
+1. Expanded test coverage
+
+Increased test coverage from a few basic cases to a comprehensive multi-section test suite
+
+Tests now cover:
+
+Basic functional correctness
+
+K-value variation
+
+Tie-breaker scenarios
+
+Edge and boundary conditions
+
+Reset during operation
+
+Invalid input handling
+
+Stress and endurance testing
+
+2. Reusable test execution using tasks
+
+Introduced a reusable run_test task to standardize test execution
+
+Eliminates repetitive code for each test case
+
+Simplifies adding new tests and improves maintainability
+
+Aligns with industry-style verification practices
+
+3. Self-checking testbench with pass/fail tracking
+
+Added automatic result checking instead of manual inspection
+
+Tracks:
+
+Total number of tests
+
+Passed tests
+
+Failed tests
+
+Overall pass rate
+
+Converts the testbench into a self-verifying system
+
+4. Timeout and deadlock detection
+
+Added per-test timeout protection to avoid infinite waits on done
+
+Implemented a global simulation watchdog
+
+Ensures FSM deadlocks and logic bugs are detected automatically
+
+5. Explicit tie-breaker testing
+
+Added test cases where multiple training samples have equal distances
+
+Uses expected_class = X to validate completion without enforcing undefined behavior
+
+Verifies robustness of K-NN logic under ambiguous conditions
+
+6. Edge-case and boundary condition testing
+
+Tested extreme feature values:
+
+Minimum (0,0)
+
+Maximum (255,255)
+
+Mixed extremes (0,255) and (255,0)
+
+Tested exact matches with training data
+
+Validated distance arithmetic and register width safety
+
+7. Reset-during-operation verification
+
+Added test where reset is asserted mid-computation
+
+Verified FSM safely returns to IDLE state
+
+Confirmed classifier can be reused after reset
+
+Validates robustness for real FPGA deployment
+
+8. Invalid K-value handling
+
+Tested invalid K values:
+
+K = 0
+
+K > NUM_TRAINING
+
+Verified fallback to default parameterized K_VALUE
+
+Confirms input sanitization logic works correctly
+
+9. Stress and endurance testing
+
+Performed multiple back-to-back classifications without reset
+
+Validates FSM stability over repeated operation
+
+Ensures no residual state leakage between runs
+
+10. Performance monitoring
+
+Added cycle-accurate performance measurement
+
+Reports:
+
+Total clock cycles per classification
+
+Execution latency in nanoseconds
+
+Useful for hardware benchmarking and comparison
+
+11. Improved observability and debugging
+
+Enhanced $display logging with:
+
+Test descriptions
+
+Input parameters
+
+Classification results
+
+Easier debugging and reproducibility of results
+
+Output logs suitable for version control and CI systems
