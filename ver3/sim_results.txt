@@ -1,0 +1,269 @@
+VCD info: dumpfile knn_classifier.vcd opened for output.
+
+========================================
+K-NN Classifier Comprehensive Test Suite
+K = 3, Training Samples = 50
+========================================
+
+
+========================================
+SECTION 1: Basic Functionality Tests
+========================================
+
+--- Test 1: Basic Test 1 - Near Class 0 cluster ---
+Input: (4, 8), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 0
+PASS - Expected: 0, Got: 0
+
+--- Test 2: Basic Test 2 - Near Class 1 cluster ---
+Input: (2, 3), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 1
+PASS - Expected: 1, Got: 1
+
+--- Test 3: Basic Test 3 - Very close to (7,8) Class 1 ---
+Input: (7, 7), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 1
+PASS - Expected: 1, Got: 1
+
+--- Test 4: Basic Test 4 - K=5 variant ---
+Input: (1, 1), K=5
+Performance: 317 clock cycles (3175 ns)
+Result: Class = 1
+PASS - Expected: 1, Got: 1
+
+--- Test 5: Basic Test 5 - Corner point ---
+Input: (8, 8), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 1
+PASS - Expected: 1, Got: 1
+
+========================================
+SECTION 2: K Value Variation Tests
+========================================
+
+--- Test 6: K=1 (Nearest neighbor only) ---
+Input: (4, 8), K=1
+Performance: 105 clock cycles (1055 ns)
+Result: Class = 0
+PASS - Expected: 0, Got: 0
+
+--- Test 7: K=3 (same point) ---
+Input: (4, 8), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 0
+PASS - Expected: 0, Got: 0
+
+--- Test 8: K=5 (same point) ---
+Input: (4, 8), K=5
+Performance: 317 clock cycles (3175 ns)
+Result: Class = 0
+PASS - Expected: 0, Got: 0
+
+--- Test 9: K=7 (same point) ---
+Input: (4, 8), K=7
+Performance: 423 clock cycles (4235 ns)
+Result: Class = 0
+PASS - Expected: 0, Got: 0
+
+--- Test 10: K=10 (large K) ---
+Input: (4, 8), K=10
+Performance: 582 clock cycles (5825 ns)
+Result: Class = 0
+PASS - Expected: 0, Got: 0
+
+========================================
+SECTION 3: Tie Breaker Scenarios
+========================================
+
+--- Test 11: Tie scenario - equidistant point ---
+Input: (5, 5), K=2
+Performance: 158 clock cycles (1585 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+--- Test 12: K=4 potential tie ---
+Input: (4, 5), K=4
+Performance: 264 clock cycles (2645 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+--- Test 13: K=6 potential tie ---
+Input: (5, 6), K=6
+Performance: 370 clock cycles (3705 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+========================================
+SECTION 4: Edge Cases
+========================================
+
+--- Test 14: Minimum coordinates (0,0) ---
+Input: (0, 0), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 1
+PASS - Completed (expected result not specified)
+
+--- Test 15: Maximum coordinates (255,255) ---
+Input: (255, 255), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+--- Test 16: Extreme diagonal (0,255) ---
+Input: (0, 255), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+--- Test 17: Extreme diagonal (255,0) ---
+Input: (255, 0), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 1
+PASS - Completed (expected result not specified)
+
+--- Test 18: Exact match - Training sample 0 ---
+Input: (1, 12), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 0
+PASS - Expected: 0, Got: 0
+
+--- Test 19: Exact match - Training sample 5 ---
+Input: (7, 8), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 1
+PASS - Expected: 1, Got: 1
+
+--- Test 20: Exact match - Training sample 8 ---
+Input: (4, 7), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 0
+PASS - Expected: 0, Got: 0
+
+--- Test 21: K=1 minimum ---
+Input: (5, 5), K=1
+Performance: 105 clock cycles (1055 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+--- Test 22: K=50 maximum (all training samples) ---
+Input: (5, 5), K=50
+FAIL - TIMEOUT waiting for done signal!
+
+========================================
+SECTION 5: Rapid Fire Tests
+========================================
+
+--- Test 23: Rapid 1 ---
+Input: (1, 2), K=3
+FAIL - TIMEOUT waiting for done signal!
+
+--- Test 24: Rapid 2 ---
+Input: (3, 4), K=3
+Performance: 700 clock cycles (7005 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+--- Test 25: Rapid 3 ---
+Input: (5, 6), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+--- Test 26: Rapid 4 - exact match ---
+Input: (7, 8), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 1
+PASS - Expected: 1, Got: 1
+
+--- Test 27: Rapid 5 ---
+Input: (9, 10), K=3
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 1
+PASS - Completed (expected result not specified)
+
+========================================
+SECTION 6: Reset During Operation
+========================================
+
+--- Test 28: Reset during computation ---
+Applying reset mid-computation...
+PASS - Reset recovered properly
+
+========================================
+SECTION 7: Invalid K Values
+========================================
+
+--- Test 29: K=0 (invalid, should use default) ---
+Input: (5, 5), K=0
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+--- Test 30: K=100 (exceeds NUM_TRAINING) ---
+Input: (5, 5), K=100
+Performance: 211 clock cycles (2115 ns)
+Result: Class = 0
+PASS - Completed (expected result not specified)
+
+========================================
+SECTION 8: Stress Test
+========================================
+
+Running 20 sequential classifications...
+Performance: 211 clock cycles (2115 ns)
+Stress test 1: Input=(1,6), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 2: Input=(2,7), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 3: Input=(3,8), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 4: Input=(4,9), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 5: Input=(5,10), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 6: Input=(6,11), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 7: Input=(7,12), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 8: Input=(8,13), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 9: Input=(9,14), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 10: Input=(10,15), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 11: Input=(11,16), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 12: Input=(12,17), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 13: Input=(13,18), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 14: Input=(14,19), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 15: Input=(15,20), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 16: Input=(16,21), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 17: Input=(17,22), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 18: Input=(18,23), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 19: Input=(19,24), Result=0
+Performance: 211 clock cycles (2115 ns)
+Stress test 20: Input=(20,25), Result=0
+Stress test completed
+
+========================================
+TEST SUMMARY
+========================================
+Total Tests Run: 50
+Passed: 48
+Failed: 2
+Pass Rate: 96%
+========================================
+
+*** SOME TESTS FAILED ***
+
+knn_classifier_tb.v:296: $finish called at 133470000 (1ps)
