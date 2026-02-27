@@ -1,0 +1,24 @@
+============================================================
+  KNN CPU vs FPGA Benchmark — Breast Cancer Dataset
+============================================================
+
+[Dataset]
+  Total samples  : 569
+  Features used  : mean radius, mean texture
+  Class 0 (malignant): 212
+  Class 1 (benign)   : 357
+
+[Split]
+  Training samples : 398
+  Test samples     : 171
+
+[CPU Benchmark — KNN from Scratch (mirrors Verilog logic)]
+    Train Size |    Time (ms) |   Accuracy
+  ------------------------------------------
+            10 |        4.575 |      62.6%
+            20 |        8.758 |      90.6%
+            30 |       13.030 |      91.2%
+            40 |       17.571 |      90.6%
+            50 |       21.841 |      90.1%
+
+  sklearn KNN accuracy (reference): 86.5%
